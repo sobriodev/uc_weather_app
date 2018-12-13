@@ -1,2 +1,5 @@
 /Debug/
 .settings/
+uc_weather_app LinkServer Debug.launch
+uc_weather_app LinkServer Release.launch
+
