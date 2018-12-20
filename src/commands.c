@@ -7,6 +7,7 @@
 
 #include "commands.h"
 #include "app_logic.h"
+#include "board.h"
 
 /* ------------------------------------------------------------------------------------------- */
 /* ----------------------------- Private functions and variables ----------------------------- */
@@ -47,6 +48,7 @@ bool invoke_cmd(const char *cmd)
 	for (int i = 0; i < COMMANDS_COUNT; i++) {
 		if (command_eq(&commands[i], cmd)) {
 			commands[i].callback();
+			Board_LED_Toggle(0);
 			return true;
 		}
 	}

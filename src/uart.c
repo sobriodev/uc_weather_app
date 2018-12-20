@@ -32,8 +32,8 @@ void UART_IRQHandler(void)
 	Chip_UART_IRQRBHandler(LPC_USART, &rxring, &txring);
 	if (RingBuffer_GetCount(&rxring) == UART_RRB_SIZE) {
 		RingBuffer_PopMult(&rxring, commandbuff, UART_RRB_SIZE);
+		uart_clear_rx();
 		invoke_cmd((char *) commandbuff);
-		Board_LED_Toggle(0);
 	}
 }
 
